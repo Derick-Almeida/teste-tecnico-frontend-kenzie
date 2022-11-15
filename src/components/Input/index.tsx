@@ -6,11 +6,11 @@ interface IProps extends InputHTMLAttributes<HTMLInputTypeAttribute> {
   msg?: string;
 }
 
-const Input = ({ label, placeholder, type, msg, min }: IProps) => {
+const Input = ({ label, placeholder, type, msg, min, className }: IProps) => {
   return (
     <ThemeInput>
       {label && <p>{label}</p>}
-      <input type={type} min={min} placeholder={placeholder} />
+      <input type={type} min={min} className={className} placeholder={placeholder} />
       {msg && <span>{msg}</span>}
     </ThemeInput>
   );
