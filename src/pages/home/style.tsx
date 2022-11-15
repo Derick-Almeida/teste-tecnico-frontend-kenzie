@@ -8,4 +8,9 @@ export const Container = styled.main`
   background: var(--white);
   border-radius: 5px;
   box-shadow: 0px 0px 5px 2px var(--blue-1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
 `;

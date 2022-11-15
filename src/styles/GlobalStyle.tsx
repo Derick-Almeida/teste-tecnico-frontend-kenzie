@@ -19,6 +19,7 @@ export default createGlobalStyle`
   }
   body{
     background: var(--grey-1);
+    font-family: 'Merriweather Sans', sans-serif;
   }
   ul,ol,li {
     list-style: none;
