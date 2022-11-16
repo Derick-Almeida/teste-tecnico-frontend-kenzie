@@ -36,5 +36,13 @@ export const ThemeForm = styled.div`
         padding-left: calc(1.8vh + 1.8vw + 0vmin);
       }
     }
+
+    > button {
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
   }
 `;
