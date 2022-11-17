@@ -29,7 +29,7 @@ export const Container = styled.div`
   align-items: center;
   gap: calc(0.5vh + 0.5vw);
 
-  animation: ${showError} 2.5s linear forwards;
+  animation: ${showError} 2s linear forwards;
   transition: opacity 1s;
 
   &::before {

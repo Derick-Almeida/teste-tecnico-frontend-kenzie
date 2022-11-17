@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  min-width: 60%;
-  min-height: 60vh;
-  margin: 20vh 20%;
+  min-width: 65%;
+  min-height: 65vh;
+  margin: 17.5vh 17.5%;
 
   background: var(--white);
   border-radius: calc(0.5vh + 0.5vw);
