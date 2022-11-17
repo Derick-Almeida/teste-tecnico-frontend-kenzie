@@ -27,19 +27,15 @@ const Form = () => {
 
     if (Object.keys(validated).length !== 0) {
       setErrors(validated);
-
       setShowError(true);
-
       setTimeout(() => {
         setShowError(false);
-      }, 3000);
+      }, 2500);
     } else {
       api
         .post("", data)
         .then((res) => {
           setShowError(false);
-          console.log("pow");
-
           setReceiptData(res.data);
         })
         .catch((err) => console.log(err));
@@ -77,7 +73,7 @@ const Form = () => {
           event={setMdr}
         />
 
-        <button type="submit"></button>
+        <button type="submit">Calcular</button>
       </form>
     </ThemeForm>
   );
