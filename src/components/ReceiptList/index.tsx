@@ -11,8 +11,10 @@ const ReceiptList = () => {
       <ul>
         {Object.entries(receiptData)?.map((receipt, index) => (
           <li key={index}>
-            {receipt[0] === "1" ? "Amanhã" : `Em ${receipt[0]} dias`}:
-            <span>R$ {receipt[1]},00</span>
+            {receipt[0] === "1" ? "Amanhã: " : `Em ${receipt[0]} dias: `}
+            <span>
+              {receipt[1].toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+            </span>
           </li>
         ))}
       </ul>

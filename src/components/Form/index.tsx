@@ -3,28 +3,47 @@ import { ContextReceipt } from "../../contexts/ReceiptsContext";
 import { api } from "../../services/api";
 import Input from "../Input";
 import { ThemeForm } from "./style";
+import validateFields from "./validator";
 
-interface IData {
-  amount: number;
-  installments: number;
-  mdr: number;
+interface IErrors {
+  amount?: string;
+  installments?: string;
+  mdr?: string;
 }
 
 const Form = () => {
-  const [amount, setAmount] = useState(0);
-  const [installments, setInstallments] = useState(0);
-  const [mdr, setMdr] = useState(0);
+  const [amount, setAmount] = useState<number>();
+  const [installments, setInstallments] = useState<number>();
+  const [mdr, setMdr] = useState<number>();
+  const [errors, setErrors] = useState<IErrors>({});
 
-  const { setReceiptData } = useContext(ContextReceipt);
+  const { setReceiptData, setShowError } = useContext(ContextReceipt);
 
   const sendValues = (e: any) => {
     e.preventDefault();
-    const data: IData = { amount, installments, mdr };
 
-    api
-      .post("", data)
-      .then((res) => setReceiptData(res.data))
-      .catch((err) => console.log(err));
+    const data = { amount, installments, mdr };
+    const validated = validateFields(data);
+
+    if (Object.keys(validated).length !== 0) {
+      setErrors(validated);
+
+      setShowError(true);
+
+      setTimeout(() => {
+        setShowError(false);
+      }, 3000);
+    } else {
+      api
+        .post("", data)
+        .then((res) => {
+          setShowError(false);
+          console.log("pow");
+
+          setReceiptData(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -34,17 +53,27 @@ const Form = () => {
 
         <Input
           type="number"
-          min="1000"
+          name="amount"
           label="Informe o valor da venda *"
           placeholder="00,00"
+          error={errors?.amount ? errors.amount : false}
           event={setAmount}
         />
-        <Input label="Em quantas parcelas *" msg="Máximo de 12 parcelas" event={setInstallments} />
         <Input
           type="number"
-          min="0"
+          name="installments"
+          label="Em quantas parcelas *"
+          msg="Máximo de 12 parcelas"
+          placeholder="1"
+          error={errors?.installments ? errors.installments : false}
+          event={setInstallments}
+        />
+        <Input
+          type="number"
+          name="mdr"
           label="Informe o percentual de MDR *"
           placeholder="0"
+          error={errors?.mdr ? errors.mdr : false}
           event={setMdr}
         />
 

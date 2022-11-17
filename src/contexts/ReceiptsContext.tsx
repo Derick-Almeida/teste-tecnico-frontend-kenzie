@@ -7,6 +7,8 @@ export interface IProviderProps {
 interface IReceiptProviderData {
   receiptData: object;
   setReceiptData: any;
+  showError: boolean;
+  setShowError: any;
 }
 
 export const ContextReceipt = createContext<IReceiptProviderData>({} as IReceiptProviderData);
@@ -18,9 +20,10 @@ const ProviderReceipt = ({ children }: IProviderProps) => {
     "60": 0,
     "90": 0,
   });
+  const [showError, setShowError] = useState(false);
 
   return (
-    <ContextReceipt.Provider value={{ receiptData, setReceiptData }}>
+    <ContextReceipt.Provider value={{ receiptData, setReceiptData, showError, setShowError }}>
       {children}
     </ContextReceipt.Provider>
   );
