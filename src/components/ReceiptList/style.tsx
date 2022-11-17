@@ -22,14 +22,14 @@ export const ThemeList = styled.div`
     &::before {
       content: "";
       position: absolute;
-      bottom: -8px;
+      bottom: calc(-0.4vh + -0.4vw + 0vmin);
 
       width: 100%;
-      height: 1px;
+      height: calc(0.1vh + 0.1vw + 0vmin);
 
       background-color: var(--blue-2);
-      box-shadow: 0 0 10px;
-      filter: blur(2px);
+      box-shadow: 0 0 calc(1vh + 1vw);
+      filter: blur(calc(0.2vh + 0.2vw));
     }
   }
 

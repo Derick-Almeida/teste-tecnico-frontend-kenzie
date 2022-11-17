@@ -20,21 +20,12 @@ export const ThemeForm = styled.div`
       font-size: calc(1.1vh + 1.1vw + 1vmin);
     }
 
-    & > div:nth-child(2) {
-      > p::before {
-        content: "R$";
-        position: absolute;
-        top: calc(2vh + 2vw + 0.1vmin);
-        left: calc(0.5vh + 0.5vw + 0.4vmin);
-        z-index: 9;
-
-        color: var(--black);
-        background-color: transparent;
-      }
-
-      > input {
-        padding-left: calc(1.8vh + 1.8vw + 0vmin);
-      }
+    > button {
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      border: none;
     }
   }
 `;

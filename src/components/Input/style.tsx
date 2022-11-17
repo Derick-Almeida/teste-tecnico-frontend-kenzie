@@ -10,36 +10,42 @@ export const ThemeInput = styled.div`
     color: var(--grey-3);
     font-size: calc(0.7vh + 0.8vw + 0vmin);
   }
-
-  > input {
-    background: var(--grey-1);
-    border: 1px solid var(--grey-2);
-    border-radius: 5px;
-    height: calc(4vh + 1vw + 0vmin);
-
-    padding: calc(0.5vh + 1vw + 0vmin);
-    font-size: calc(0.8vh + 0.8vw + 0.2vmin);
-    color: var(--black);
+  > div {
+    display: flex;
+    align-items: center;
     position: relative;
 
-    &:focus {
-      border: 1px solid var(--blue-2);
-      background: var(--white);
-      outline: 1px solid var(--blue-3);
-    }
-    &::placeholder {
-      color: var(--grey-2);
-    }
+    > input {
+      background: var(--grey-1);
+      border: calc(0.1vh + 0.1vw) solid var(--grey-2);
+      border-radius: calc(0.3vh + 0.3vw);
+      height: calc(4vh + 1vw);
+      width: 100%;
 
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+      padding: calc(0.5vh + 1vw);
+      font-size: calc(0.8vh + 0.8vw + 0.2vmin);
+      color: var(--black);
+      position: relative;
+
+      &:focus {
+        border: calc(0.1vh + 0.1vw) solid var(--blue-3);
+        background: var(--white);
+        outline: calc(0.1vh + 0.1vw) solid var(--blue-3);
+      }
+      &::placeholder {
+        color: var(--grey-2);
+      }
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
   }
 
   > span {
     color: var(--grey-2);
-    font-size: calc(0.6vh + 0.6vw + 0vmin);
+    font-size: calc(0.6vh + 0.6vw);
   }
 `;
